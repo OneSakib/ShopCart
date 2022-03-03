@@ -125,11 +125,8 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # session modify
 SESSION_COOKIE_AGE = 1209600
-SESSION_COOKIE_DOMAIN = 'localhost'
+SESSION_COOKIE_DOMAIN = 'https://shopsakib.herokuapp.com/'
 SESSION_COOKIE_SECURE = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 CART_SESSION_ID = 'cart'
 CSRF_TRUSTED_ORIGINS = ["https://shopsakib.herokuapp.com"]
-
-# # Activate Django-Heroku.
-# django_heroku.settings(locals())
