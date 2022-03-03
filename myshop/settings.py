@@ -128,3 +128,4 @@ SESSION_COOKIE_DOMAIN = 'localhost'
 SESSION_COOKIE_SECURE = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 CART_SESSION_ID = 'cart'
+CSRF_TRUSTED_ORIGINS = ["https://shopsakib.herokuapp.com"]
