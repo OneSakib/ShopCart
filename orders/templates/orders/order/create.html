@@ -1,0 +1,31 @@
+{% extends 'shop/base.html' %}
+{% block title %} Checkout {% endblock %}
+
+{% block body %}
+<div class="container row ">
+    <h1 class="text-center text-white bg-primary p-3" style="margin-top: -80px; border-radius: 5px;">Checkout</h1>
+    <div class="col-4">
+        <h3 class="text-white bg-secondary p-3">Your Order</h3>
+        <ul class="list-group">
+            {% for item in cart %}
+            <li class="list-group-item border-danger" style="border:1px solid red">
+                {{item.quantity }} x {{ item.product.name }}
+                <span>
+                    Rs. {{item.total_price }}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+        <h5 class="text-white bg-success p-3" style="border-radius: 5px;">Total: Rs. {{cart.get_total_price }}</h5>
+    </div>
+    <div class="col-5">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input value="Place Order" type="submit" class="btn btn-success">
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}

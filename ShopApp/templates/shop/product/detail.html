@@ -1,0 +1,44 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} {{product.name}} {% endblock %}
+{% block css %}
+<style>
+    #id_quantity {
+        padding: 10px;
+    }
+
+    .forms {
+        border: 0.3px solid gray;
+        padding: 10px;
+    }
+    .btns
+    {
+        padding:10px;
+        border-radius: 5px;
+        color: white;
+    }
+</style>
+
+{% endblock %}
+{% block body %}
+<div class="container row">
+    <div class="col-6">
+        <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/image-not-avilable.jpg' %} {% endif %}"
+             height="100%" width="600   " style="margin-left: -100px;">
+    </div>
+    <div class="col-6">
+        <h1 class="text-primary text-center">{{product.name}}</h1>
+        <h2 class="text-center text-secondary"><a href="{{ product.category.get_absolute_url }}">
+            {{product.category}}</a></h2>
+        <p class="text-center text-danger fs-1">${{ product.price }}</p>
+        <div class="mb-3">
+            <form class="forms" action="{% url 'cart:cart_add' product.id %}" method="post">
+                {% csrf_token %}
+                {{cart_product_form}}
+                <input type="submit" value="Add to Cart" class="btns btn-success">
+            </form>
+        </div>
+        <p class="text fs-3">{{ product.description }}</p>
+    </div>
+</div>
+{% endblock %}
