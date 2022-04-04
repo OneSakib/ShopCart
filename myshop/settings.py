@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
-# SECRET_KEY='r_b)k-z*t2fw-g@o1x#+mgs)^(__l6p7!or9gk0=tfwb-s76mv'
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'r_b)k-z*t2fw-g@o1x#+mgs)^(__l6p7!or9gk0=tfwb-s76mv'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["shopsakib.herokuapp.com","localhost"]
+ALLOWED_HOSTS = ["shopsakib.herokuapp.com", "localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -117,8 +117,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = BASE_DIR / 'static'
+# STATIC_ROOT = BASE_DIR / 'static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -132,5 +133,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 CART_SESSION_ID = 'cart'
 # CSRF_TRUSTED_ORIGINS = ["https://shopsakib.herokuapp.com"]
 # Redirect http to https
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# Razor payment
+RAZOR_KEY_ID = 'rzp_test_X1eEEdQmORMT9t'
+RAZOR_KEY_SECRET = 'XJaRaJpgsthBLstCrjqoaIIN'
